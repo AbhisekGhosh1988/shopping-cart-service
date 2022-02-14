@@ -1,7 +1,0 @@
-package com.abhisek.mindtree;
-
-public interface Constants {
-	
-	final static String USER_REGISTER_SUCCES="User registered successfully!";
-
-}

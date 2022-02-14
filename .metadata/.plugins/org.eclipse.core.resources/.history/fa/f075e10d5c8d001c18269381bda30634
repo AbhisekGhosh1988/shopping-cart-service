@@ -1,5 +1,0 @@
-package com.abhisek.mindtree.exception;
-
-public class UnAuthorizedException extends Exception {
-
-}

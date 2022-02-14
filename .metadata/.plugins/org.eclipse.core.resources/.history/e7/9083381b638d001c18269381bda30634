@@ -1,9 +1,0 @@
-package com.abhisek.mindtree.exception;
-
-public class JwtTokenUnsupportedException extends Exception {
-	private static final long serialVersionUID = 1L;
-
-	public JwtTokenUnsupportedException() {
-		super();
-	}
-}

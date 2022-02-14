@@ -1,9 +1,0 @@
-package com.abhisek.mindtree.exception;
-
-public class JwtClaimEmptyException extends Exception {
-	private static final long serialVersionUID = 1L;
-
-	public JwtClaimEmptyException() {
-		super();
-	}
-}

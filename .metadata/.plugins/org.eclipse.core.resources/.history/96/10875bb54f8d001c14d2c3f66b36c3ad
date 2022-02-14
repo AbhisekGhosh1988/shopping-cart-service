@@ -1,5 +1,0 @@
-package com.abhisek.mindtree.config;
-
-public class GlobalExceptionHandler {
-
-}
