@@ -26,4 +26,4 @@ Swagger URL
 ```sh
 http://localhost:8080/swagger-ui/index.html
 ```
-**PS -- POstman collection attached to root folder of this project
+**PS -- Postman collection attached to root folder of this project
