@@ -1,0 +1,17 @@
+package com.abhisek.mindtree;
+
+public interface Constants {
+	
+	final static String USER_REGISTER_SUCCES="User registered successfully!";
+	final static String USERNAME_TAKEN="Error: Username is already taken!";
+	final static String GETTING_CART_INFO="Getting Cart Items for User =======> ";
+	final static String CART_EMPTY_USER="Cart Empty for User =======> " ;
+	final static String CART_EMPTY="Cart is empty";
+	final static String EXCEPTION="Exception: ";
+	final static String USER_REGISTER_SUCCES="User registered successfully!";
+	final static String USER_REGISTER_SUCCES="User registered successfully!";
+	final static String USER_REGISTER_SUCCES="User registered successfully!";
+	final static String USER_REGISTER_SUCCES="User registered successfully!";
+	final static String USER_REGISTER_SUCCES="User registered successfully!";
+
+}

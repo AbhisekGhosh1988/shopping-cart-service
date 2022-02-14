@@ -1,0 +1,5 @@
+package com.abhisek.mindtree;
+
+public interface Constants {
+
+}

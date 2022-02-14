@@ -1,0 +1,5 @@
+package com.abhisek.mindtree.exception;
+
+public class JwtClaimEmptyException extends Exception {
+
+}

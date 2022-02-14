@@ -1,0 +1,63 @@
+package com.abhisek.mindtree.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.abhisek.mindtree.dto.ProductRequest;
+import com.abhisek.mindtree.dto.ProductResponseDto;
+import com.abhisek.mindtree.model.Product;
+import com.abhisek.mindtree.service.ProductServiceImpl;
+
+@RestController
+@RequestMapping(value = "product")
+public class ProductController {
+
+	@Autowired
+	private ProductServiceImpl productService;
+
+	@PostMapping("/saveproduct")
+	public ResponseEntity<String> saveProduct(@RequestBody java.util.List<ProductRequest> productRequests) {
+
+		String val = productService.saveProduct(productRequests);
+
+		return ResponseEntity.status(HttpStatus.OK).body(val);
+
+	}
+
+	@PostMapping("/deleteproduct/{id}")
+	public ResponseEntity<String> deleteProduct(@PathVariable int id) {
+
+		productService.deleteProduct(id);
+
+		return ResponseEntity.status(HttpStatus.OK).body("");
+
+	}
+
+	@GetMapping("/category/{category}")
+	public ResponseEntity<ProductResponseDto> getProductsByCategory(@PathVariable String category,
+			@RequestParam(defaultValue = "1") int pagenumber, @RequestParam(defaultValue = "10") int pagesize) {
+		ProductResponseDto response = productService.getProductsByCategory(category, pagenumber, pagesize);
+		if (response.getProduct().isEmpty()) {
+			// throw new RestaurantNotFoundException(RESTAURANT_NOT_FOUND_MSG);
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(response);
+	}
+
+	@GetMapping("/product/{name}")
+	public Product getProductsByName(@PathVariable String name) {
+
+		Product response = productService.getProductsByName(name);
+
+		return response;
+
+	}
+
+}

@@ -1,0 +1,22 @@
+package com.abhisek.mindtree.config;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+import com.abhisek.mindtree.dto.MessageApi;
+import com.abhisek.mindtree.exception.EmailException;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+	@ExceptionHandler(EmailException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseBody
+	public MessageApi handleNoRecordFoundException(EmailException ex) {
+
+		MessageApi errorResponse = MessageApi.builder().message("Error: Email is already in use!").build();
+		return errorResponse;
+	}
+}

@@ -1,0 +1,12 @@
+package com.abhisek.mindtree.exception;
+
+import org.springframework.http.ResponseEntity;
+
+public class CartException extends RuntimeException {
+
+	private static final long serialVersionUID = 1L;
+
+	public CartException() {
+		super();
+	}
+}

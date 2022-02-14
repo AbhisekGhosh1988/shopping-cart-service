@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "cd083452-ceaf-417d-b918-83171e47068e",
+		"name": "shopping-cart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register-as-admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Admin0\",\r\n    \"firstName\": \"Admin1\",\r\n    \"lastName\": \"Admin2\",\r\n    \"phoneNumber\": \"1234567890\",\r\n    \"address\": \"India\",\r\n    \"dateOfBirth\": \"09/09/1988\",\r\n    \"email\": \"a@bii.com\",\r\n    \"password\": \"123456\",\r\n    \"role\": [\r\n        \"admin\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register-as-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Admin6\",\r\n    \"firstName\": \"Admin1\",\r\n    \"lastName\": \"Admin2\",\r\n    \"phoneNumber\": \"1234567890\",\r\n    \"address\": \"India\",\r\n    \"dateOfBirth\": \"09/09/1988\",\r\n    \"email\": \"ak@b.com\",\r\n    \"password\": \"123456\",\r\n    \"role\": [\r\n        \"user\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "save-product-admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImlhdCI6MTY0NDU4NjcwNCwiZXhwIjoxNjQ0NTg3MjA0fQ.74Eh_TECElCL3tGmRmS-m3ab4KZxLBeQkKCAnRf-NFRzna1_sN5gnHAKpS64-yHxQ7VMGsiNUbeL6gQSl4ShPw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"productName\": \"VH POLO1\",\r\n        \"price\": 500,\r\n        \"type\": \"T-Shirt\",\r\n        \"brand\": \"Van Huesen\",\r\n        \"design\": \"STRIPE\"\r\n    },\r\n    {\r\n        \"productName\": \"VH POLO2\",\r\n        \"price\": 550,\r\n        \"type\": \"T-Shirt\",\r\n        \"brand\": \"Van Huesen\",\r\n        \"design\": \"CHEQUERED\"\r\n    },\r\n    {\r\n        \"productName\": \"VH SHIRT2\",\r\n        \"price\": 610,\r\n        \"type\": \"Shirt\",\r\n        \"brand\": \"Van Huesen\",\r\n        \"design\": \"HALF\"\r\n    },\r\n    {\r\n        \"productName\": \"VH SHIRT1\",\r\n        \"price\": 600,\r\n        \"type\": \"Shirt\",\r\n        \"brand\": \"Van Huesen\",\r\n        \"design\": \"FULL\"\r\n    },\r\n    {\r\n        \"productName\": \"VH TROUSER1\",\r\n        \"price\": 700,\r\n        \"type\": \"TROUSER\",\r\n        \"brand\": \"Van Huesen\",\r\n        \"design\": \"STRIPE\"\r\n    },\r\n    {\r\n        \"productName\": \"VH TROUSER2\",\r\n        \"price\": 720,\r\n        \"type\": \"TROUSER\",\r\n        \"brand\": \"Van Huesen\",\r\n        \"design\": \"CHEQUERED\"\r\n    },\r\n    {\r\n        \"productName\": \"LP POLO1\",\r\n        \"price\": 800,\r\n        \"type\": \"T-Shirt\",\r\n        \"brand\": \"Van Huesen\",\r\n        \"design\": \"Stripe\"\r\n    },\r\n    {\r\n        \"productName\": \"LP POLO2\",\r\n        \"price\": 810,\r\n        \"type\": \"T-Shirt\",\r\n        \"brand\": \"Van Huesen\",\r\n        \"design\": \"CHEQURED\"\r\n    },\r\n    {\r\n        \"productName\": \"LP SHIRT1\",\r\n        \"price\": 830,\r\n        \"type\": \"Shirt\",\r\n        \"brand\": \"LOUIS PHILLIPE\",\r\n        \"design\": \"Stripe\"\r\n    },\r\n    {\r\n        \"productName\": \"LP SHIRT2\",\r\n        \"price\": 840,\r\n        \"type\": \"T-Shirt\",\r\n        \"brand\": \"LOUIS PHILLIPE\",\r\n        \"design\": \"CHEQUERED\"\r\n    },\r\n    {\r\n        \"productName\": \"LP TROUSER1\",\r\n        \"price\": 850,\r\n        \"type\": \"TROUSER\",\r\n        \"brand\": \"LOUIS PHILLIPE\",\r\n        \"design\": \"Stripe\"\r\n    },\r\n    {\r\n        \"productName\": \"LP TROUSER2\",\r\n        \"price\": 860,\r\n        \"type\": \"TROUSER\",\r\n        \"brand\": \"LOUIS PHILLIPE\",\r\n        \"design\": \"CHEQUERED\"\r\n    },\r\n    {\r\n    \"productName\":\"Famous Five\",\r\n    \"price\":350,\r\n    \"genre\":\"Fiction\",\r\n    \"author\":\"Enid Blyton\",\r\n    \"publication\":\"Hooder\"\r\n    \r\n},\r\n{\r\n    \"productName\":\"Lolita\",\r\n    \"price\":300,\r\n    \"genre\":\"Love Story\",\r\n    \"author\":\"Vladimir Novokov\",\r\n    \"publication\":\"Penguin\"\r\n    \r\n},\r\n{\r\n    \"productName\":\"Great Expectations\",\r\n    \"price\":400,\r\n    \"genre\":\"Classics\",\r\n    \"author\":\"Charles Dickens\",\r\n    \"publication\":\"Harper Collins\"\r\n    \r\n}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/product/saveproduct",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"saveproduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-product-admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImlhdCI6MTY0NDU4NjcwNCwiZXhwIjoxNjQ0NTg3MjA0fQ.74Eh_TECElCL3tGmRmS-m3ab4KZxLBeQkKCAnRf-NFRzna1_sN5gnHAKpS64-yHxQ7VMGsiNUbeL6gQSl4ShPw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/product/deleteproduct/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"deleteproduct",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-by-category-user-no-auth",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/product/category/Book",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"category",
+								"Book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-by-name-user-no-auth",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/product/name/VH",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"name",
+								"VH"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "save-cart-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBYmhpc2VrNiIsImlhdCI6MTY0NDU4NzIzMywiZXhwIjoxNjQ0NTg3NzMzfQ.d9kCzP-jneeDy4nPrrmG49sDJaXSIdCKy_5da5JzlSQ2ELRbmx36hZLxiqOfD2R78Rn1CyQinIP6bZTGicKuew",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"productId\":4,\r\n   \"productName\":\"abcd\",\r\n   \"quantity\":1,\r\n   \"price\":350\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cart/add/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cart",
+								"add",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-cart-items-user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBYmhpc2VrNiIsImlhdCI6MTY0NDU4NzIzMywiZXhwIjoxNjQ0NTg3NzMzfQ.d9kCzP-jneeDy4nPrrmG49sDJaXSIdCKy_5da5JzlSQ2ELRbmx36hZLxiqOfD2R78Rn1CyQinIP6bZTGicKuew",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"productId\":4,\r\n   \"productName\":\"abcd\",\r\n   \"quantity\":1,\r\n   \"price\":350\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cart/list/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cart",
+								"list",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-cart-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBYmhpc2VrNiIsImlhdCI6MTY0NDU4NzIzMywiZXhwIjoxNjQ0NTg3NzMzfQ.d9kCzP-jneeDy4nPrrmG49sDJaXSIdCKy_5da5JzlSQ2ELRbmx36hZLxiqOfD2R78Rn1CyQinIP6bZTGicKuew",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"productId\":4,\r\n   \"productName\":\"abcd\",\r\n   \"quantity\":1,\r\n   \"price\":350\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cart/delete/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cart",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,16 @@
+package com.abhisek.mindtree.dto;
+
+import java.util.List;
+
+import com.abhisek.mindtree.model.Cart;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class ApiResponse {
+	private List<Cart> cartItems;
+	private Double cartTotal;
+
+}

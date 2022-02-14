@@ -1,0 +1,17 @@
+package com.abhisek.mindtree.service;
+
+import java.util.List;
+
+import com.abhisek.mindtree.dto.ProductRequest;
+import com.abhisek.mindtree.dto.ProductResponseDto;
+import com.abhisek.mindtree.model.Product;
+
+public interface ProductService {
+	public String saveProduct(List<ProductRequest> productRequests);
+
+	public String deleteProduct(int id);
+
+	public ProductResponseDto getProductsByCategory(String category, int pageNumber, int pageSize);
+
+	public Product getProductsByName(String name);
+}

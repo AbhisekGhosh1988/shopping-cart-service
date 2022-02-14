@@ -1,0 +1,32 @@
+package com.abhisek.mindtree.config;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+import com.abhisek.mindtree.dto.MessageApi;
+import com.abhisek.mindtree.exception.EmailException;
+import com.abhisek.mindtree.exception.NoRoleFoundException;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+	@ExceptionHandler(EmailException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseBody
+	public MessageApi handleEmailException(EmailException ex) {
+
+		MessageApi errorResponse = MessageApi.builder().message("Error: Email is already in use!").build();
+		return errorResponse;
+	}
+
+	@ExceptionHandler(NoRoleFoundException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseBody
+	public MessageApi handleNoRoleFoundException(EmailException ex) {
+
+		MessageApi errorResponse = MessageApi.builder().message("Error: Role is not found.").build();
+		return errorResponse;
+	}
+}
